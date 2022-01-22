@@ -45,4 +45,35 @@ router.post("/login", (req, res) => {
     });
 });
 
+// add expense
+router.post("/addExpense", (req, res) => {
+    // res.send("Register Route");
+    // console.log(req.body);
+    const { email, type, amount } = req.body;
+    const newExpense = {
+        type,
+        amount,
+    };
+    User.findOneAndUpdate({ email: email }, { $push: { expense: newExpense } }, (err) => {
+        if (err) {
+            res.send({ message: "Error" });
+        } else {
+            res.send({ message: "Success" });
+        }
+    });
+});
+
+// fetchExpense
+router.post("/fetchExpense", (req, res) => {
+    // res.send("Login Route");
+    const { email } = req.body;
+    User.findOne({ email: email }, (err, user) => {
+        if (user) {
+            res.send({ message: "Successfully Fetched", expense: user.expense });
+        } else {
+            res.send({ message: "User Not Exits" });
+        }
+    });
+});
+
 module.exports = router;

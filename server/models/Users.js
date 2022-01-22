@@ -5,6 +5,12 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: String,
     date: { type: Date, default: Date.now },
+    expense: [
+        {
+            type: { type: String },
+            amount: { type: Number },
+        },
+    ],
 });
 
 const User = new mongoose.model("user", userSchema);
