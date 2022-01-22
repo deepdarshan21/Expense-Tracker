@@ -1,16 +1,18 @@
 // import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Homepage from "./components/homepage/homepage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { AppProvider } from "./context/AppContext";
 
 function App() {
     const [user, setUser] = useState({});
     return (
-        <div className="App">
-            {/* <BrowserRouter>
+        <AppProvider>
+            <div className="App">
+                {/* <BrowserRouter>
                 <Routes>
                     <Route
                         path="/"
@@ -27,8 +29,9 @@ function App() {
                     <Route path="/register" exact element={<Register />} />
                 </Routes>
             </BrowserRouter> */}
-            <Homepage />
-        </div>
+                <Homepage />
+            </div>
+        </AppProvider>
     );
 }
 

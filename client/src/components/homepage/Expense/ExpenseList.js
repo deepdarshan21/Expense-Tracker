@@ -1,16 +1,35 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import ExpenseItem from "./ExpenseItem";
+import { AppContext } from "../../../context/AppContext";
 
 const ExpenseList = () => {
-    const expenses = [
-        { id: 12, name: "shopping", cost: 40 },
-        { id: 13, name: "holiday", cost: 400 },
-        { id: 14, name: "car service", cost: 50 },
-    ];
+    const { expenses } = useContext(AppContext);
+    // const expenses = [
+    //     { id: 12, type: "shopping", amount: 40 },
+    //     { id: 13, type: "holiday", amount: 400 },
+    //     { id: 14, type: "car service", amount: 50 },
+    // ];
+
+    // const [expenses, setExpenses] = useState([]);
+
+    // useEffect(() => {
+    //     const fetchExpense = () => {
+    //         axios
+    //             .post("http://localhost:8080/api/user/fetchExpense", {
+    //                 email: "deep@deep.com",
+    //             })
+    //             .then((res) => {
+    //                 setExpenses(res.data.expense);
+    //             });
+    //     };
+    //     fetchExpense();
+    // }, []);
 
     return (
         <ul className="list-group">
-            {expenses.map(({ id, name, cost }) => (
-                <ExpenseItem id={id} name={name} cost={cost} />
+            {expenses.map(({ _id, type, amount }) => (
+                <ExpenseItem id={_id} name={type} cost={amount} />
             ))}
         </ul>
     );

@@ -1,4 +1,4 @@
-import "./homepage.css";
+// import "./homepage.css";
 import Budget from "./Expense/Budget";
 import Remaining from "./Expense/Remaining";
 import Spent from "./Expense/Spent";
@@ -18,9 +18,20 @@ import AddExpense from "./Expense/AddExpense";
 //         </div>
 //     );
 // };
-const Homepage = () => {
+
+const Homepage = (/* { setLoginUser, value } */) => {
+    // const logOut = () => {
+    //     setLoginUser({});
+    // };
+
     return (
         <div className="container">
+            {/* <div className="navbar navbar-light bg-light">
+                <span className="navbar-brand mb-2 h1">{value.name}</span>
+                <button className="my-2 my-sm-0 btn btn-outline-danger" onClick={logOut}>
+                    Logout
+                </button>
+            </div> */}
             <h1 className="mt-3">My Budget Planner</h1>
             <div className="row mt-3">
                 <div className="col-sm">
