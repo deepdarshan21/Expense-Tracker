@@ -1,4 +1,5 @@
-import "./App.css";
+// import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
 import Homepage from "./components/homepage/homepage";
@@ -9,7 +10,7 @@ function App() {
     const [user, setUser] = useState({});
     return (
         <div className="App">
-            <BrowserRouter>
+            {/* <BrowserRouter>
                 <Routes>
                     <Route
                         path="/"
@@ -25,7 +26,8 @@ function App() {
                     <Route path="/login" exact element={<Login setLoginUser={setUser} />} />
                     <Route path="/register" exact element={<Register />} />
                 </Routes>
-            </BrowserRouter>
+            </BrowserRouter> */}
+            <Homepage />
         </div>
     );
 }
