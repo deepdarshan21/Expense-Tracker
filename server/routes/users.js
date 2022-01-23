@@ -72,7 +72,25 @@ router.post("/fetchExpense", (req, res) => {
     const { _id } = req.body;
     User.findOne({ _id: _id }, (err, user) => {
         if (user) {
-            res.send({ message: "Successfully Fetched", expense: user.expense });
+            const expenses = {
+                budget: user.budget,
+                expenses: user.expense,
+            };
+            res.send({ message: "Successfully Fetched", expenses: expenses });
+        } else {
+            res.send({ message: "User Not Exits" });
+        }
+    });
+});
+
+// updateBudget
+router.post("/updateBudget", (req, res) => {
+    // res.send("Login Route");
+    const { _id, budget} = req.body;
+    User.updateOne({ _id: _id }, {budget: budget}, (err) => {
+        if (!err) {
+            
+            res.send({ message: "Successfully Updated" });
         } else {
             res.send({ message: "User Not Exits" });
         }
