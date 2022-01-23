@@ -22,7 +22,7 @@ const Login = ({ setLoginUser }) => {
     const login = () => {
         const { email, password } = user;
         axios
-            .post("http://localhost:8080/api/user/login", {
+            .post("/api/user/login", {
                 email: email,
                 password: password,
             })

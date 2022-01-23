@@ -37,7 +37,7 @@ export const AppProvider = (props) => {
 
     //actions
     const addExpense = async (expense) => {
-        await axios.post("http://localhost:8080/api/user/addExpense", expense);
+        await axios.post("/api/user/addExpense", expense);
         dispatch({
             type: "ADD_EXPENSE",
             payload: expense,
@@ -45,7 +45,7 @@ export const AppProvider = (props) => {
     };
 
     const getExpenses = async (id) => {
-        const res = await axios.post("http://localhost:8080/api/user/fetchExpense", id);
+        const res = await axios.post("/api/user/fetchExpense", id);
         dispatch({
             type: "GET_TRANSACTIONS",
             payload: res.data.expenses,
@@ -53,7 +53,7 @@ export const AppProvider = (props) => {
     };
 
     const updateBudget = async (budget) => {
-        await axios.post("http://localhost:8080/api/user/updateBudget", budget);
+        await axios.post("/api/user/updateBudget", budget);
         console.log("hey", budget);
         dispatch({
             type: "UPDATE_BUDGET",

@@ -25,7 +25,7 @@ const Register = () => {
         if (name && email && password && password === rePassword) {
             // alert("Registered");
             axios
-                .post("http://localhost:8080/api/user/register", {
+                .post("/api/user/register", {
                     name: name,
                     email: email,
                     password: password,
