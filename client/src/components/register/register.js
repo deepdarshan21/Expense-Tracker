@@ -45,43 +45,45 @@ const Register = () => {
     };
 
     return (
-        <div className="register">
-            <h1>Register</h1>
-            <input
-                type="text"
-                name="name"
-                value={user.name}
-                placeholder="Enter Your Name"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                name="email"
-                value={user.email}
-                placeholder="Enter Your Email"
-                onChange={handleChange}
-            />
-            <input
-                type="password"
-                name="password"
-                value={user.password}
-                placeholder="Enter Your Password"
-                onChange={handleChange}
-            />
-            <input
-                type="password"
-                name="rePassword"
-                value={user.rePassword}
-                placeholder="Re-Enter Your Password"
-                onChange={handleChange}
-            />
-            <button className="button" onClick={register}>
-                Register
-            </button>
-            <div>or</div>
-            <button className="button" onClick={login}>
-                Login
-            </button>
+        <div className="register-div">
+            <div className="register">
+                <h1>Register</h1>
+                <input
+                    type="text"
+                    name="name"
+                    value={user.name}
+                    placeholder="Enter Your Name"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    name="email"
+                    value={user.email}
+                    placeholder="Enter Your Email"
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    placeholder="Enter Your Password"
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    name="rePassword"
+                    value={user.rePassword}
+                    placeholder="Re-Enter Your Password"
+                    onChange={handleChange}
+                />
+                <button className="button" onClick={register}>
+                    Register
+                </button>
+                <div>or</div>
+                <button className="button" onClick={login}>
+                    Login
+                </button>
+            </div>
         </div>
     );
 };

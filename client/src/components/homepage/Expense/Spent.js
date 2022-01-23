@@ -6,10 +6,15 @@ const Spent = () => {
 
     const totalExpenses = expenses.reduce((total, item) => {
         return (total += Number(item.amount));
+        // if (!item.isDeleted) {
+        //     total += Number(item.amount);
+        // }
+        // return total;
     }, 0);
 
     return (
         <div className="alert alert-primary">
+            {/* {console.log(totalExpenses)} */}
             <span>Spent: ₹{totalExpenses}</span>
         </div>
     );

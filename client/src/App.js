@@ -12,7 +12,7 @@ function App() {
     return (
         <AppProvider>
             <div className="App">
-                {/* <BrowserRouter>
+                <BrowserRouter>
                 <Routes>
                     <Route
                         path="/"
@@ -28,8 +28,8 @@ function App() {
                     <Route path="/login" exact element={<Login setLoginUser={setUser} />} />
                     <Route path="/register" exact element={<Register />} />
                 </Routes>
-            </BrowserRouter> */}
-                <Homepage />
+            </BrowserRouter>
+                {/* <Homepage /> */}
             </div>
         </AppProvider>
     );

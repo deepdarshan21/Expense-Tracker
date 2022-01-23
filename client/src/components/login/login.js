@@ -39,29 +39,31 @@ const Login = ({ setLoginUser }) => {
     };
 
     return (
-        <div className="login">
-            <h1>Login</h1>
-            <input
-                type="text"
-                name="email"
-                value={user.email}
-                placeholder="Enter Your Email"
-                onChange={handleChange}
-            />
-            <input
-                type="password"
-                name="password"
-                value={user.password}
-                placeholder="Enter Your Password"
-                onChange={handleChange}
-            />
-            <button className="button" onClick={login}>
-                Login
-            </button>
-            <div>or</div>
-            <button className="button" onClick={register}>
-                Register
-            </button>
+        <div className="login-div">
+            <div className="login">
+                <h1>Login</h1>
+                <input
+                    type="text"
+                    name="email"
+                    value={user.email}
+                    placeholder="Enter Your Email"
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    placeholder="Enter Your Password"
+                    onChange={handleChange}
+                />
+                <button className="button" onClick={login}>
+                    Login
+                </button>
+                <div>or</div>
+                <button className="button" onClick={register}>
+                    Register
+                </button>
+            </div>
         </div>
     );
 };

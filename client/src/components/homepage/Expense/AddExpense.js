@@ -3,10 +3,11 @@ import { useContext, useState } from "react";
 import { AppContext } from "../../../context/AppContext";
 
 const AddExpense = () => {
-    const { dispatch } = useContext(AppContext);
+    const { addExpense } = useContext(AppContext);
 
     const [name, setName] = useState("");
-    const [cost, setCost] = useState();
+    const [type, setType] = useState("default");
+    const [cost, setCost] = useState("");
 
     const add = async (e) => {
         e.preventDefault();
@@ -21,17 +22,21 @@ const AddExpense = () => {
         //     });
 
         const expense = {
-            _id: 13,
-            type: name,
+            // _id: 15,
+            _id: "61ec5e722442eb5d40e5e3ec",
+            name: name,
+            type: type,
             amount: cost,
+            // isDeleted: false,
         };
-
-        dispatch({
-            type: "ADD_EXPENSE",
-            payload: expense,
-        });
+        addExpense(expense);
+        // dispatch({
+        //     type: "ADD_EXPENSE",
+        //     payload: expense,
+        // });
 
         setName("");
+        setType("default");
         setCost("");
     };
 
@@ -47,7 +52,25 @@ const AddExpense = () => {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                    ></input>
+                    />
+                </div>
+                <div className="col-sm">
+                    <label for="type">Type</label>
+                    <select
+                        required="required"
+                        className="form-control"
+                        id="type"
+                        value={type}
+                        onChange={(e) => setType(e.target.value)}
+                    >
+                        <option value="Defult" hidden>
+                            Select One
+                        </option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="House">House</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
+                    </select>
                 </div>
                 <div className="col-sm">
                     <label for="cost">Cost</label>
@@ -58,7 +81,7 @@ const AddExpense = () => {
                         id="cost"
                         value={cost}
                         onChange={(e) => setCost(e.target.value)}
-                    ></input>
+                    />
                 </div>
             </div>
             <div className="row">
