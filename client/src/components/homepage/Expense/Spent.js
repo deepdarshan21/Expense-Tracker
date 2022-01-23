@@ -15,7 +15,8 @@ const Spent = () => {
     return (
         <div className="alert alert-primary">
             {/* {console.log(totalExpenses)} */}
-            <span>Spent: ₹{totalExpenses}</span>
+            <span className="highlight">Spent:</span>
+            <span> ₹{totalExpenses}</span>
         </div>
     );
 };

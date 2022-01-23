@@ -13,12 +13,12 @@ const AppReducer = (state, action) => {
                 ...state,
                 expenses: [...state.expenses, action.payload],
             };
-        // case "GET_ID":
-        //     // console.log(st);
-        //     return {
-        //         ...state,
-        //         _id: action.payload,
-        //     };
+        case "UPDATE_BUDGET":
+            console.log(action.payload);
+            return {
+                ...state,
+                budget: action.payload,
+            };
         // case "DELETE_EXPENSE":
         //     const index = state.expenses.findIndex((expense) => expense._id === action.payload);
         //     console.log(state.expenses[index]);
@@ -34,7 +34,6 @@ const AppReducer = (state, action) => {
 };
 
 const initialState = {
-    _id: 0,
     budget: 2,
     expenses: [],
 };
@@ -62,6 +61,15 @@ export const AppProvider = (props) => {
         });
     };
 
+    const updateBudget = async (budget) => {
+        // const res = await axios.post("http://localhost:8080/api/user/fetchExpense", id);
+        console.log("hey", budget);
+        dispatch({
+            type: "UPDATE_BUDGET",
+            payload: budget,
+        });
+    };
+
     return (
         <AppContext.Provider
             value={{
@@ -71,6 +79,7 @@ export const AppProvider = (props) => {
                 // dispatch,
                 addExpense,
                 getExpenses,
+                updateBudget,
                 // dispatch
             }}
         >

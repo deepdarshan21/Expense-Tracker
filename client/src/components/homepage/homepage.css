@@ -39,3 +39,11 @@
     align-items: center; */
     margin: 30px;
 }
+
+.hide{
+    display: none;
+}
+
+.highlight{
+    font-weight: bold;
+}
