@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     email: String,
     password: String,
     date: { type: Date, default: Date.now },
-    budget: {type: Number, default: 0},
+    budget: { type: Number, default: 0 },
     expense: [
         {
             name: { type: String },
@@ -16,13 +16,5 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = new mongoose.model("user", userSchema);
-
-// const userSchema = new mongoose.Schema({
-//     name: { String, required: true },
-//     email: { String, required: true },
-//     password: { String, required: true },
-// });
-
-// const User = new mongoose.model("user", userSchema);
 
 module.exports = User;

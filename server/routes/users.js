@@ -5,8 +5,6 @@ const router = express.Router();
 
 // Register
 router.post("/register", (req, res) => {
-    // res.send("Register Route");
-    // console.log(req.body);
     const { name, email, password } = req.body;
     User.findOne({ email: email }, (err, user) => {
         if (user) {
@@ -30,7 +28,6 @@ router.post("/register", (req, res) => {
 
 // Login
 router.post("/login", (req, res) => {
-    // res.send("Login Route");
     const { email, password } = req.body;
     User.findOne({ email: email }, (err, user) => {
         if (user) {
@@ -47,8 +44,6 @@ router.post("/login", (req, res) => {
 
 // add expense
 router.post("/addExpense", (req, res) => {
-    // res.send("Register Route");
-    // console.log(req.body);
     const { _id, name, type, amount } = req.body;
     const newExpense = {
         name,
@@ -56,8 +51,6 @@ router.post("/addExpense", (req, res) => {
         amount,
     };
     User.findOneAndUpdate({ _id: _id }, { $push: { expense: newExpense } }, (err) => {
-        // User.findOneAndUpdate({ _id: _id }, { $last: { expense } });
-        // log({$last:"expense"});
         if (err) {
             res.send({ message: "Error" });
         } else {
@@ -68,7 +61,6 @@ router.post("/addExpense", (req, res) => {
 
 // fetchExpense
 router.post("/fetchExpense", (req, res) => {
-    // res.send("Login Route");
     const { _id } = req.body;
     User.findOne({ _id: _id }, (err, user) => {
         if (user) {
@@ -85,11 +77,9 @@ router.post("/fetchExpense", (req, res) => {
 
 // updateBudget
 router.post("/updateBudget", (req, res) => {
-    // res.send("Login Route");
-    const { _id, budget} = req.body;
-    User.updateOne({ _id: _id }, {budget: budget}, (err) => {
+    const { _id, budget } = req.body;
+    User.updateOne({ _id: _id }, { budget: budget }, (err) => {
         if (!err) {
-            
             res.send({ message: "Successfully Updated" });
         } else {
             res.send({ message: "User Not Exits" });
