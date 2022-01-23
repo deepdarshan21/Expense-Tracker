@@ -5,6 +5,8 @@ import Spent from "./Expense/Spent";
 import ExpenseList from "./Expense/ExpenseList";
 import AddExpense from "./Expense/AddExpense";
 import Summary from "./Expense/Summary";
+// import { AppContext } from "../../context/AppContext";
+// import { useContext, useEffect } from "react";
 
 // const Homepage = ({ setLoginUser, value }) => {
 //     const logout = () => {
@@ -21,9 +23,15 @@ import Summary from "./Expense/Summary";
 // };
 
 const Homepage = ({ setLoginUser, value }) => {
+    // const { dispatch } = useContext(AppContext);
     const logOut = () => {
         setLoginUser({});
     };
+
+    // dispatch({
+    //     type: "GET_IDADD_EXPENSE",
+    //     payload: value._id,
+    // });
 
     return (
         <div className="container">
@@ -34,7 +42,7 @@ const Homepage = ({ setLoginUser, value }) => {
                 </button>
             </div>
             <h1 className="mt-3">My Budget Planner</h1>
-            <div className="row mt-3">
+            {/* <div className="row mt-3">
                 <div className="col-sm">
                     <Budget />
                 </div>
@@ -44,19 +52,19 @@ const Homepage = ({ setLoginUser, value }) => {
                 <div className="col-sm">
                     <Spent />
                 </div>
-            </div>
+            </div> */}
             <h3 className="mt-3">Expense History</h3>
-            <div className="row mt-3">
+            {/* <div className="row mt-3">
                 <div className="col-sm">
                     <ExpenseList />
                 </div>
-            </div>
+            </div> */}
             <h3 className="mt-3">Add Expense</h3>
-            <div className="row mt-3">
+            {/* <div className="row mt-3">
                 <div className="col-sm">
                     <AddExpense />
                 </div>
-            </div>
+            </div> */}
             <h3 className="mt-3">Add Expense</h3>
             <Summary />
         </div>

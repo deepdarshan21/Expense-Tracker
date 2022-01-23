@@ -49,12 +49,15 @@ router.post("/login", (req, res) => {
 router.post("/addExpense", (req, res) => {
     // res.send("Register Route");
     // console.log(req.body);
-    const { email, type, amount } = req.body;
+    const { _id, name, type, amount } = req.body;
     const newExpense = {
+        name,
         type,
         amount,
     };
-    User.findOneAndUpdate({ email: email }, { $push: { expense: newExpense } }, (err) => {
+    User.findOneAndUpdate({ _id: _id }, { $push: { expense: newExpense } }, (err) => {
+        // User.findOneAndUpdate({ _id: _id }, { $last: { expense } });
+        // log({$last:"expense"});
         if (err) {
             res.send({ message: "Error" });
         } else {
@@ -66,8 +69,8 @@ router.post("/addExpense", (req, res) => {
 // fetchExpense
 router.post("/fetchExpense", (req, res) => {
     // res.send("Login Route");
-    const { email } = req.body;
-    User.findOne({ email: email }, (err, user) => {
+    const { _id } = req.body;
+    User.findOne({ _id: _id }, (err, user) => {
         if (user) {
             res.send({ message: "Successfully Fetched", expense: user.expense });
         } else {

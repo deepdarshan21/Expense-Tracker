@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
     expense: [
         {
+            name: { type: String },
             type: { type: String },
             amount: { type: Number },
         },
