@@ -3,22 +3,26 @@ import { AppContext } from "../../../context/AppContext";
 import { AiTwotoneEdit } from "react-icons/ai";
 import { MdOutlineDoneAll } from "react-icons/md";
 
-const Budget = () => {
+const Budget = ({ _id }) => {
     const { budget, updateBudget } = useContext(AppContext);
-    const [ editBudget, setEditBudget ] = useState(budget);
+    const [editBudget, setEditBudget] = useState(budget);
     // setEditExpense(budget)
-    const edit=()=>{
+    const edit = () => {
         // alert("Clicked")
         document.getElementsByClassName("show")[0].classList.add("hide");
         document.getElementsByClassName("edit")[0].classList.remove("hide");
-    }
+    };
 
     const done = () => {
         // alert("Clicked")
         document.getElementsByClassName("edit")[0].classList.add("hide");
         document.getElementsByClassName("show")[0].classList.remove("hide");
-        console.log("Deep",editBudget);
-        updateBudget(editBudget)
+        // console.log("Deep",editBudget);
+        const Budget = {
+            _id: _id,
+            budget: editBudget,
+        };
+        updateBudget(Budget);
     };
 
     return (

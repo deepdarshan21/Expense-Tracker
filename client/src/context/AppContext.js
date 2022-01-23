@@ -6,7 +6,8 @@ const AppReducer = (state, action) => {
         case "GET_TRANSACTIONS":
             return {
                 ...state,
-                expenses: action.payload,
+                budget: action.payload.budget,
+                expenses: action.payload.expenses,
             };
         case "ADD_EXPENSE":
             return {
@@ -57,16 +58,16 @@ export const AppProvider = (props) => {
         const res = await axios.post("http://localhost:8080/api/user/fetchExpense", id);
         dispatch({
             type: "GET_TRANSACTIONS",
-            payload: res.data.expense,
+            payload: res.data.expenses,
         });
     };
 
     const updateBudget = async (budget) => {
-        // const res = await axios.post("http://localhost:8080/api/user/fetchExpense", id);
+        await axios.post("http://localhost:8080/api/user/updateBudget", budget);
         console.log("hey", budget);
         dispatch({
             type: "UPDATE_BUDGET",
-            payload: budget,
+            payload: budget.budget,
         });
     };
 
