@@ -17,7 +17,6 @@ const Summary = () => {
     }, 0);
 
     const Clothing = expenses.reduce((total, item) => {
-        // return (total += Number(item.amount));
         if (item.type === "Clothing") {
             total += Number(item.amount);
         }
@@ -25,7 +24,6 @@ const Summary = () => {
     }, 0);
 
     const House = expenses.reduce((total, item) => {
-        // return (total += Number(item.amount));
         if (item.type === "House") {
             total += Number(item.amount);
         }
@@ -33,7 +31,6 @@ const Summary = () => {
     }, 0);
 
     const Miscellaneous = expenses.reduce((total, item) => {
-        // return (total += Number(item.amount));
         if (item.type === "Miscellaneous") {
             total += Number(item.amount);
         }
@@ -64,7 +61,6 @@ const Summary = () => {
                     data={data}
                     options={{
                         responsive: true,
-                        // maintainAspectRatio: false,
                     }}
                 />
             </div>

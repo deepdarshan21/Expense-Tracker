@@ -40,7 +40,6 @@ const Login = ({ setLoginUser }) => {
 
     return (
         <div className="login-div">
-            {console.log("11111")}
             <div className="login">
                 <h1>Login</h1>
                 <input

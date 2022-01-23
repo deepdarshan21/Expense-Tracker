@@ -1,8 +1,7 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { AppContext } from "../../../context/AppContext";
 
-const AddExpense = ({_id}) => {
+const AddExpense = ({ _id }) => {
     const { addExpense } = useContext(AppContext);
 
     const [name, setName] = useState("");
@@ -11,15 +10,6 @@ const AddExpense = ({_id}) => {
 
     const add = async (e) => {
         e.preventDefault();
-        // axios
-        //     .post("http://localhost:8080/api/user/addExpense", {
-        //         email: "deep@deep.com",
-        //         type: name,
-        //         amount: cost,
-        //     })
-        //     .then((res) => {
-        //         alert(res.data.message);
-        //     });
 
         const expense = {
             // _id: 15,
@@ -27,13 +17,8 @@ const AddExpense = ({_id}) => {
             name: name,
             type: type,
             amount: cost,
-            // isDeleted: false,
         };
         addExpense(expense);
-        // dispatch({
-        //     type: "ADD_EXPENSE",
-        //     payload: expense,
-        // });
 
         setName("");
         setType("default");

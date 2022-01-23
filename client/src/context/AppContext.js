@@ -20,15 +20,6 @@ const AppReducer = (state, action) => {
                 ...state,
                 budget: action.payload,
             };
-        // case "DELETE_EXPENSE":
-        //     const index = state.expenses.findIndex((expense) => expense._id === action.payload);
-        //     console.log(state.expenses[index]);
-        //     state.expenses[index].isDeleted = !state.expenses[index].isDeleted;
-        //     return {
-        //         ...state,
-        //         // expenses: state.expenses.filter((expense) => expense._id !== action.payload),
-        //         expenses: state.expenses,
-        //     };
         default:
             return state;
     }
@@ -47,7 +38,6 @@ export const AppProvider = (props) => {
     //actions
     const addExpense = async (expense) => {
         await axios.post("http://localhost:8080/api/user/addExpense", expense);
-        // console.log("run");
         dispatch({
             type: "ADD_EXPENSE",
             payload: expense,
@@ -77,11 +67,9 @@ export const AppProvider = (props) => {
                 _id: state._id,
                 budget: state.budget,
                 expenses: state.expenses,
-                // dispatch,
                 addExpense,
                 getExpenses,
                 updateBudget,
-                // dispatch
             }}
         >
             {props.children}
