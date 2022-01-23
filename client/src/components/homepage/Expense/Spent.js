@@ -13,10 +13,12 @@ const Spent = () => {
     }, 0);
 
     return (
-        <div className="alert alert-primary">
-            {/* {console.log(totalExpenses)} */}
-            <span className="highlight">Spent:</span>
-            <span> ₹{totalExpenses}</span>
+        <div className="budget-spend-remain">
+            <div className="alert alert-primary highlight-box">
+                {/* {console.log(totalExpenses)} */}
+                <span className="highlight">Spent:</span>
+                <span> ₹{totalExpenses}</span>
+            </div>
         </div>
     );
 };

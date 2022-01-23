@@ -66,7 +66,7 @@ const Homepage = ({ setLoginUser, value }) => {
             <h3 className="mt-3">Add Expense</h3>
             <div className="row mt-3">
                 <div className="col-sm">
-                    <AddExpense />
+                    <AddExpense _id={value._id} />
                 </div>
             </div>
             <h3 className="mt-3">Add Expense</h3>

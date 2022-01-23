@@ -47,3 +47,15 @@
 .highlight{
     font-weight: bold;
 }
+
+.highlight-box{
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget-spend-remain{
+    display: flex;
+    justify-content: center;
+}

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { AppContext } from "../../../context/AppContext";
 
-const AddExpense = () => {
+const AddExpense = ({_id}) => {
     const { addExpense } = useContext(AppContext);
 
     const [name, setName] = useState("");
@@ -23,7 +23,7 @@ const AddExpense = () => {
 
         const expense = {
             // _id: 15,
-            _id: "61ec5e722442eb5d40e5e3ec",
+            _id: _id,
             name: name,
             type: type,
             amount: cost,

@@ -32,15 +32,26 @@ const Summary = () => {
         return total;
     }, 0);
 
-    const Remaining = budget > Grocery + Clothing + House ? budget - Grocery - Clothing - House : 0;
+    const Miscellaneous = expenses.reduce((total, item) => {
+        // return (total += Number(item.amount));
+        if (item.type === "Miscellaneous") {
+            total += Number(item.amount);
+        }
+        return total;
+    }, 0);
+
+    const Remaining =
+        budget > Grocery + Clothing + House + Miscellaneous
+            ? budget - Grocery - Clothing - House - Miscellaneous
+            : 0;
 
     const data = {
-        labels: ["Grocery", "Clothing", "House", "Remaining"],
+        labels: ["Grocery", "Clothing", "House", "Miscellaneous", "Remaining"],
         datasets: [
             {
                 label: "Expense",
-                data: [Grocery, Clothing, House, Remaining],
-                backgroundColor: ["Yellow", "Pink", "Orange", "Green"],
+                data: [Grocery, Clothing, House, Miscellaneous, Remaining],
+                backgroundColor: ["Yellow", "Pink", "Orange", "Indigo", "Green"],
                 borderWidth: 1,
             },
         ],
