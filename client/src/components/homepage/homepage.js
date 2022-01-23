@@ -28,13 +28,17 @@ const Homepage = ({ setLoginUser, value }) => {
         setLoginUser({});
     };
 
-    // dispatch({
-    //     type: "GET_IDADD_EXPENSE",
-    //     payload: value._id,
-    // });
+
+    // useEffect(()=>{
+    //     dispatch({
+    //         type: "GET_ID",
+    //         payload: value._id,
+    //     });
+    // }, [dispatch, value])
 
     return (
         <div className="container">
+            {/* {console.log(value._id)} */}
             <div className="navbar navbar-light bg-light">
                 <span className="navbar-brand mb-2 h1">{value.name}</span>
                 <button className="my-2 my-sm-0 btn btn-outline-danger" onClick={logOut}>
@@ -42,7 +46,7 @@ const Homepage = ({ setLoginUser, value }) => {
                 </button>
             </div>
             <h1 className="mt-3">My Budget Planner</h1>
-            {/* <div className="row mt-3">
+            <div className="row mt-3">
                 <div className="col-sm">
                     <Budget />
                 </div>
@@ -52,19 +56,19 @@ const Homepage = ({ setLoginUser, value }) => {
                 <div className="col-sm">
                     <Spent />
                 </div>
-            </div> */}
+            </div>
             <h3 className="mt-3">Expense History</h3>
-            {/* <div className="row mt-3">
+            <div className="row mt-3">
                 <div className="col-sm">
-                    <ExpenseList />
+                    <ExpenseList _id={value._id} />
                 </div>
-            </div> */}
+            </div>
             <h3 className="mt-3">Add Expense</h3>
-            {/* <div className="row mt-3">
+            <div className="row mt-3">
                 <div className="col-sm">
                     <AddExpense />
                 </div>
-            </div> */}
+            </div>
             <h3 className="mt-3">Add Expense</h3>
             <Summary />
         </div>

@@ -32,8 +32,7 @@ const Summary = () => {
         return total;
     }, 0);
 
-
-    const Remaining = budget - Grocery - Clothing - House;
+    const Remaining = budget > Grocery + Clothing + House ? budget - Grocery - Clothing - House : 0;
 
     const data = {
         labels: ["Grocery", "Clothing", "House", "Remaining"],

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import { AppContext } from "../../../context/AppContext";
 
-const ExpenseList = () => {
+const ExpenseList = ({_id}) => {
     const { expenses, getExpenses } = useContext(AppContext);
     // const expenses = [
     //     { id: 12, type: "shopping", amount: 40 },
@@ -27,11 +27,14 @@ const ExpenseList = () => {
     // }, []);
 
     useEffect(() => {
+        // console.log("Id: ", _id);
+        // const ac = new AbortController();
         const id = {
-            _id: "61ec5e722442eb5d40e5e3ec",
+            _id: _id,
         };
         getExpenses(id);
-    }, [getExpenses]);
+        // return () => ac.abort(); // Abort both fetches on unmount
+    }, [_id, getExpenses]);
 
     return (
         <ul className="list-group">

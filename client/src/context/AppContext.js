@@ -13,6 +13,12 @@ const AppReducer = (state, action) => {
                 ...state,
                 expenses: [...state.expenses, action.payload],
             };
+        // case "GET_ID":
+        //     // console.log(st);
+        //     return {
+        //         ...state,
+        //         _id: action.payload,
+        //     };
         // case "DELETE_EXPENSE":
         //     const index = state.expenses.findIndex((expense) => expense._id === action.payload);
         //     console.log(state.expenses[index]);
@@ -28,12 +34,9 @@ const AppReducer = (state, action) => {
 };
 
 const initialState = {
-    budget: 6000,
-    expenses: [
-        { name: "Rice", type: "Grocery", amount: 40 },
-        { name: "Dal", type: "Grocery", amount: 50 },
-        { name: "Shirt", type: "Clothing", amount: 400 },
-    ],
+    _id: 0,
+    budget: 2,
+    expenses: [],
 };
 
 export const AppContext = createContext();
@@ -62,11 +65,13 @@ export const AppProvider = (props) => {
     return (
         <AppContext.Provider
             value={{
+                _id: state._id,
                 budget: state.budget,
                 expenses: state.expenses,
                 // dispatch,
                 addExpense,
                 getExpenses,
+                // dispatch
             }}
         >
             {props.children}
